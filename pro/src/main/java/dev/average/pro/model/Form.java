@@ -13,21 +13,21 @@ import javax.persistence.*;
 @Getter
 @Setter
 @Table(name = "jobs")
-public class Job {
+public class Form {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long Id;
 
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "job_id")
     private Work work;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "job_id")
     private WorkWeek workWeek;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "job_id")
     private WorkEnv workEnv;
 

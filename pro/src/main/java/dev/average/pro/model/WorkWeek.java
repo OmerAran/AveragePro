@@ -8,6 +8,8 @@ import lombok.Setter;
 import javax.persistence.Entity;
 import javax.persistence.*;
 import javax.persistence.Table;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @AllArgsConstructor
@@ -24,7 +26,7 @@ public class WorkWeek {
     @Column(name = "work_hours")
     private String workHours;
 
-    @OneToOne(mappedBy = "workWeek")
-    private Job job ;
+    @OneToMany(mappedBy = "workWeek")
+    private Set<Form> forms = new HashSet<>();
 
 }

@@ -6,6 +6,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @AllArgsConstructor
@@ -22,7 +24,8 @@ public class WorkEnv {
     @Column(name = "work_status")
     private String workStatus;
 
-    @OneToOne(mappedBy = "workEnv")
-    private Job job ;
+
+    @OneToMany(mappedBy = "workEnv")
+    private Set<Form> forms = new HashSet<>();
 
 }
