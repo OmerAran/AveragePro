@@ -12,7 +12,7 @@ import javax.persistence.*;
 @AllArgsConstructor
 @Getter
 @Setter
-@Table(name = "jobs")
+@Table(name = "forms")
 public class Form {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,15 +20,15 @@ public class Form {
 
 
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "job_id")
+    @JoinColumn(name = "job_work")
     private Work work;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "job_id")
+    @JoinColumn(name = "job_workweek")
     private WorkWeek workWeek;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "job_id")
+    @JoinColumn(name = "job_workenv")
     private WorkEnv workEnv;
 
 
