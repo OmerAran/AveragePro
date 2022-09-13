@@ -46,4 +46,12 @@ public class UserManager implements UserService {
         }
 
     }
+
+    @Override
+    public void deleteUser(Long id) {
+        User user = userRepository.findById(id).orElseThrow(() -> new RuntimeException());
+
+            userRepository.deleteById(id);
+
+    }
 }
