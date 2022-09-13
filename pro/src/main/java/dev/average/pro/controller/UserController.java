@@ -36,7 +36,6 @@ public class UserController {
     @GetMapping("{id}")
     public ResponseEntity<UserDto> getUser(@PathVariable Long id){
         User user = userManager.getUser(id);
-
         UserDto userDto = modelMapper.map(user, UserDto.class);
         return ResponseEntity.ok().body(userDto);
     }

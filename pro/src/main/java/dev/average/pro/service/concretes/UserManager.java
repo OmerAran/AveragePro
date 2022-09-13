@@ -1,5 +1,6 @@
 package dev.average.pro.service.concretes;
 
+import dev.average.pro.exception.ResourceNotFoundException;
 import dev.average.pro.model.User;
 import dev.average.pro.repository.UserRepository;
 import dev.average.pro.service.abstracts.UserService;
@@ -23,7 +24,8 @@ public class UserManager implements UserService {
     @Override
     public User getUser(Long id) {
 
-        return userRepository.getById(id);
+        return userRepository.findById(id).orElseThrow(()->
+                new ResourceNotFoundException("not found user with id : "+id));
     }
 
     @Override
@@ -34,23 +36,20 @@ public class UserManager implements UserService {
 
     @Override
     public User updateUser(Long id, User newUser) {
-        Optional<User> oldUser = userRepository.findById(id);
-        if (oldUser.isPresent()){
-            oldUser.get().setUsername(newUser.getUsername());
-            oldUser.get().setEmail(newUser.getEmail());
-             userRepository.save(oldUser.get());
-            return oldUser.get();
-        }
-        else {
-            return null;
-        }
+        User oldUser = userRepository.findById(id).orElseThrow(()->
+                new ResourceNotFoundException("Not Found User with id: "+id));
 
+        oldUser.setUsername(newUser.getUsername());
+        oldUser.setEmail(newUser.getEmail());
+
+        userRepository.save(oldUser);
+        return oldUser;
     }
 
     @Override
     public void deleteUser(Long id) {
-        User user = userRepository.findById(id).orElseThrow(() -> new RuntimeException());
-
+        User user = userRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException(
+                "Not found user with id :"+id));
             userRepository.deleteById(id);
 
     }
