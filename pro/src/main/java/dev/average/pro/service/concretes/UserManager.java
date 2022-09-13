@@ -50,7 +50,8 @@ public class UserManager implements UserService {
     public void deleteUser(Long id) {
         User user = userRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException(
                 "Not found user with id :"+id));
-            userRepository.deleteById(id);
+
+        userRepository.deleteById(id);
 
     }
 }
