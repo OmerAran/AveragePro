@@ -18,10 +18,10 @@ import java.util.Set;
 public class WorkEnv {
 
     @javax.persistence.Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
-    @Column(name = "work_status")
+    @Column(unique = true, name = "work_status")
     private String workStatus;
 
 

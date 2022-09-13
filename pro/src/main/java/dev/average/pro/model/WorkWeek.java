@@ -20,10 +20,10 @@ import java.util.Set;
 public class WorkWeek {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
-    @Column(name = "work_hours")
+    @Column(unique = true,name = "work_hours")
     private String workHours;
 
     @OneToMany(mappedBy = "workWeek")

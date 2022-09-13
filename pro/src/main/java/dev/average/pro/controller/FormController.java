@@ -41,17 +41,9 @@ public class FormController {
     }
 
     @PostMapping()
-    public ResponseEntity<FormDto> newForm(@RequestBody FormDto formDto){
+    public ResponseEntity<Form> newForm(@RequestBody Form form){
 
-        Form formRequest = modelMapper.map(formDto, Form.class);
-        Form form = formManager.newForm(formRequest);
-        log.info("{}",formRequest.getWork().getId());
-        log.info("{}",form.getWork().getId());
-        log.info("{}",formDto.getWork().getId());
-
-
-        FormDto formResponse = modelMapper.map(form, FormDto.class);
-        return new ResponseEntity(formResponse, HttpStatus.CREATED);
+        return new ResponseEntity(formManager.newForm(form), HttpStatus.CREATED);
     }
 
     @PutMapping("/{id}")
