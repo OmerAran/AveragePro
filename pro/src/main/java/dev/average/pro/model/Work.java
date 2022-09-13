@@ -21,9 +21,9 @@ public class Work
 {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int Id;
+    private int id;
 
-    @Column(name = "name")
+    @Column(  unique = true, name = "name")
     private String name;
 
     @OneToMany(mappedBy = "work")

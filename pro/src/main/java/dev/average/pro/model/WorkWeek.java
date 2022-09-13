@@ -21,7 +21,7 @@ public class WorkWeek {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int Id;
+    private int id;
 
     @Column(name = "work_hours")
     private String workHours;

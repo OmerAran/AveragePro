@@ -7,6 +7,7 @@ import dev.average.pro.model.Form;
 import dev.average.pro.model.User;
 import dev.average.pro.service.concretes.FormManager;
 import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
 import org.springframework.http.HttpStatus;
@@ -17,13 +18,13 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-@AllArgsConstructor
+@RequiredArgsConstructor
 @Slf4j
-@RequestMapping("/forms/")
+@RequestMapping("/forms")
 public class FormController {
 
     private final FormManager formManager ;
-    private ModelMapper modelMapper ;
+    private final ModelMapper modelMapper ;
 
     @GetMapping()
     public List<FormDto> getForms(){
@@ -41,8 +42,13 @@ public class FormController {
 
     @PostMapping()
     public ResponseEntity<FormDto> newForm(@RequestBody FormDto formDto){
+
         Form formRequest = modelMapper.map(formDto, Form.class);
         Form form = formManager.newForm(formRequest);
+        log.info("{}",formRequest.getWork().getId());
+        log.info("{}",form.getWork().getId());
+        log.info("{}",formDto.getWork().getId());
+
 
         FormDto formResponse = modelMapper.map(form, FormDto.class);
         return new ResponseEntity(formResponse, HttpStatus.CREATED);

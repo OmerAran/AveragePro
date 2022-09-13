@@ -6,6 +6,7 @@ import dev.average.pro.model.User;
 import dev.average.pro.service.abstracts.UserService;
 import dev.average.pro.service.concretes.UserManager;
 import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
 import org.springframework.http.HttpStatus;
@@ -17,13 +18,15 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @RestController
-@AllArgsConstructor
+@RequiredArgsConstructor
 @Slf4j
 @RequestMapping("/users")
 public class UserController {
 
-    private ModelMapper modelMapper;
+    private final ModelMapper modelMapper;
     private final UserManager userManager;
+
+
 
     @GetMapping()
     public List<UserDto>  getUsers(){

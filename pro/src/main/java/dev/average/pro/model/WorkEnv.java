@@ -19,7 +19,7 @@ public class WorkEnv {
 
     @javax.persistence.Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int Id;
+    private int id;
 
     @Column(name = "work_status")
     private String workStatus;

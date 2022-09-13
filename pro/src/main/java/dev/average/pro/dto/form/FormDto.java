@@ -15,9 +15,11 @@ import lombok.Setter;
 public class FormDto {
 
     private WorkDto work;
+
     private WorkWeekDto workWeek;
+
     private WorkEnvDto workEnv;
 
     private String description;
-    private int Salary;
+    private int salary;
 }
