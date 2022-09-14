@@ -14,5 +14,7 @@ public interface FormService {
 
     void deleteForm(Long id);
 
+    Integer rateWork();
+
 
 }

@@ -1,6 +1,7 @@
 package dev.average.pro.controller;
 
 
+import dev.average.pro.exception.ResourceNotFoundException;
 import dev.average.pro.model.User;
 import dev.average.pro.service.concretes.UserManager;
 import lombok.RequiredArgsConstructor;
@@ -31,6 +32,15 @@ public class UserController {
 
         return ResponseEntity.ok()
                 .body( userManager.getUser(id));
+    }
+    @GetMapping("name/{name}")
+    public List<User> getUsersByUsername(@PathVariable String name){
+        return  userManager.getUsersByName(name);
+    }
+
+    @GetMapping("count/{name}")
+    public Integer getCountUsersByName(@PathVariable String name){
+        return  userManager.countAllByUsername(name);
     }
 
 

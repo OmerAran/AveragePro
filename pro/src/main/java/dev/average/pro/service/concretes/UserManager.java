@@ -29,6 +29,11 @@ public class UserManager implements UserService {
     }
 
     @Override
+    public List<User> getUsersByName(String name) {
+        return userRepository.findAllByUsername(name);
+    }
+
+    @Override
     public User newUser(User user) {
 
         return userRepository.save(user);
@@ -44,6 +49,12 @@ public class UserManager implements UserService {
 
         userRepository.save(oldUser);
         return oldUser;
+    }
+
+    @Override
+    public Integer countAllByUsername(String name) {
+        int countUsersByName = userRepository.countAllByUsername(name);
+        return countUsersByName;
     }
 
     @Override

@@ -55,4 +55,9 @@ public class FormManager implements FormService {
 
         formRepository.deleteById(id);
     }
+
+    @Override
+    public Integer rateWork() {
+        return formRepository.rateWork();
+    }
 }

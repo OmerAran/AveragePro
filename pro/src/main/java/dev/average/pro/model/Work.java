@@ -1,5 +1,7 @@
 package dev.average.pro.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -14,8 +16,7 @@ import java.util.Set;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Getter
-@Setter
+
 @Table(name = "works")
 public class Work
 {
@@ -23,11 +24,40 @@ public class Work
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
+
     @Column(unique = true, name = "name")
     private String name;
 
     @OneToMany(fetch = FetchType.EAGER,mappedBy = "work")
+
     private Set<Form> forms = new HashSet<>();
 
 
+    public int getId() {
+        return id;
+    }
+
+
+    @JsonBackReference
+    public Set<Form> getForms() {
+        return forms;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setForms(Set<Form> forms) {
+        this.forms = forms;
+    }
 }

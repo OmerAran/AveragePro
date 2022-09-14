@@ -6,6 +6,7 @@ import dev.average.pro.service.concretes.FormManager;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -29,11 +30,15 @@ public class FormController {
         Form form = formManager.getForm(id);
         return ResponseEntity.ok().body(form);
     }
+    @GetMapping("workse")
+    public Integer rateWork(){
+        return formManager.rateWork();
+    }
 
     @PostMapping()
+
     public ResponseEntity<Form> newForm(@RequestBody Form form) {
-        int id = form.getWork().getId();
-        log.info("{}",id);
+
         return new ResponseEntity(formManager.newForm(form), HttpStatus.CREATED);
     }
 
