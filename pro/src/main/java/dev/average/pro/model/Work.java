@@ -20,13 +20,13 @@ import java.util.Set;
 public class Work
 {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     @Column(unique = true, name = "name")
     private String name;
 
-    @OneToMany(mappedBy = "work")
+    @OneToMany(fetch = FetchType.EAGER,mappedBy = "work")
     private Set<Form> forms = new HashSet<>();
 
 

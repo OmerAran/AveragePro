@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface WorkEnvService {
 
-    List<WorkEnvDto> getWorkEnvs();
+    List<WorkEnv> getWorkEnvs();
     WorkEnv getWorkEnv(int id);
     WorkEnv newWorkEnv(WorkEnv workEnv);
     WorkEnv updateWorkEnv(int id, WorkEnv workEnv);
