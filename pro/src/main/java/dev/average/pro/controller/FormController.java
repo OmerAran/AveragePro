@@ -2,6 +2,7 @@ package dev.average.pro.controller;
 
 
 import dev.average.pro.model.Form;
+import dev.average.pro.repository.FormRepository;
 import dev.average.pro.service.concretes.FormManager;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -30,9 +31,14 @@ public class FormController {
         Form form = formManager.getForm(id);
         return ResponseEntity.ok().body(form);
     }
-    @GetMapping("workse")
-    public Integer rateWork(){
-        return formManager.rateWork();
+    @GetMapping("workbyname/{name}")
+    public Integer rateWork(@PathVariable String name){
+        return formManager.rateWork(name);
+    }
+
+    @GetMapping("workbyid/{id}")
+    public Integer CountWorkById(@PathVariable int id){
+        return formManager.CountWorkById(id);
     }
 
     @PostMapping()

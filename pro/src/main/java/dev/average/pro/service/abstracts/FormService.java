@@ -14,7 +14,8 @@ public interface FormService {
 
     void deleteForm(Long id);
 
-    Integer rateWork();
+    Integer rateWork(String name);
+    Integer CountWorkById(int id);
 
 
 }

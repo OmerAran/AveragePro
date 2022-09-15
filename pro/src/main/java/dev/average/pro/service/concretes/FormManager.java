@@ -57,7 +57,12 @@ public class FormManager implements FormService {
     }
 
     @Override
-    public Integer rateWork() {
-        return formRepository.rateWork();
+    public Integer rateWork(String name) {
+        return formRepository.rateWork( name);
+    }
+
+    @Override
+    public Integer CountWorkById(int id) {
+        return formRepository.CountWorkById(id);
     }
 }

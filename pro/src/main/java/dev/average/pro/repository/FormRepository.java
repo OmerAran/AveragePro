@@ -9,6 +9,14 @@ import java.util.List;
 
 @Repository
 public interface FormRepository extends JpaRepository<Form,Long> {
-    @Query("select count(form) from Form form where form.work.name='Öğrenci'")
-    Integer rateWork();
+    @Query("select count(form) from Form form where form.work.name=?1")
+    Integer rateWork(String name);
+
+
+    @Query("select count(form) from Form form where form.work.id=?1")
+    Integer CountWorkById(int id);
+
+
+
+
 }
