@@ -19,6 +19,10 @@ public interface FormRepository extends JpaRepository<Form,Long> {
     Integer countAll();
 
 
+    @Query("select avg(form.salary) from Form form where form.work.id=?1")
+    Integer AvgSalary(int id);
+
+
 
 
 

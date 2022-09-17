@@ -72,6 +72,10 @@ public class FormController {
         int requestWorkWeek = formManager.countFormsByWorkWeek_Id(id);
         return percent(requestWorkWeek,allWorkWeeks);
     }
+    @GetMapping("avgsalary/{id}")
+    public  Integer AvgSalary(@PathVariable int id){
+        return formManager.AvgSalary(id);
+    }
 
 
     @PostMapping()

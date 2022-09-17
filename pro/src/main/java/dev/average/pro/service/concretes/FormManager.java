@@ -80,4 +80,9 @@ public class FormManager implements FormService {
     public Integer countFormsByWorkWeek_Id(int id) {
         return formRepository.countFormsByWorkWeek_Id(id);
     }
+
+    @Override
+    public Integer AvgSalary(int id) {
+        return formRepository.AvgSalary(id);
+    }
 }
