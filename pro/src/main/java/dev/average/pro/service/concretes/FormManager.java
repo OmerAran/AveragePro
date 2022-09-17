@@ -70,4 +70,14 @@ public class FormManager implements FormService {
     public Integer countAll() {
         return formRepository.countAll();
     }
+
+    @Override
+    public Integer countFormsByWorkEnv_Id(int id) {
+        return formRepository.countFormsByWorkEnv_Id(id);
+    }
+
+    @Override
+    public Integer countFormsByWorkWeek_Id(int id) {
+        return formRepository.countFormsByWorkWeek_Id(id);
+    }
 }

@@ -2,12 +2,9 @@ package dev.average.pro.controller;
 
 
 import dev.average.pro.model.Form;
-import dev.average.pro.repository.FormRepository;
 import dev.average.pro.service.concretes.FormManager;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,7 +12,6 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-@Slf4j
 @RequestMapping("/forms")
 public class FormController {
 
@@ -37,7 +33,7 @@ public class FormController {
         return formManager.countFormsByWork_NameIgnoreCase(name);
     }
 
-    @GetMapping("workbyid/{id}")
+    @GetMapping("work/{id}")
     public Integer CountWorkById(@PathVariable int id){
         return formManager.countFormsByWork_Id(id);
     }
@@ -47,17 +43,45 @@ public class FormController {
         return formManager.countAll();
     }
 
-    @PostMapping()
+    @GetMapping("workenv/{id}")
+    public Integer countFormsByWorkEnv_Id(@PathVariable int id){
+        return formManager.countFormsByWorkEnv_Id(id);
+    }
 
+    @GetMapping("workweek/{id}")
+    public Integer countFormsByWorkWeek_Id(@PathVariable int id){
+        return formManager.countFormsByWorkWeek_Id(id);
+    }
+
+    @GetMapping("comparework/{id}")
+    public  Integer compareWork(@PathVariable int id){
+        int allWorks = formManager.countAll();
+        int requestWork = formManager.countFormsByWork_Id(id);
+        return percent(requestWork,allWorks);
+    }
+
+    @GetMapping("compareworkenv/{id}")
+    public  Integer compareWorkEnv(@PathVariable int id){
+        int allWorkEnvs = formManager.countAll();
+        int requestWorkEnv = formManager.countFormsByWorkEnv_Id(id);
+        return percent(requestWorkEnv,allWorkEnvs);
+    }
+    @GetMapping("compareworkweek/{id}")
+    public  Integer compareWorkWeek(@PathVariable int id){
+        int allWorkWeeks = formManager.countAll();
+        int requestWorkWeek = formManager.countFormsByWorkWeek_Id(id);
+        return percent(requestWorkWeek,allWorkWeeks);
+    }
+
+
+    @PostMapping()
     public ResponseEntity<Form> newForm(@RequestBody Form form) {
 
-        return new ResponseEntity(formManager.newForm(form), HttpStatus.CREATED);
+        return new ResponseEntity<>(formManager.newForm(form), HttpStatus.CREATED);
     }
 
     @PutMapping("/{id}")
     public ResponseEntity<Form> updateForm(@PathVariable Long id, @RequestBody Form form) {
-
-
         return ResponseEntity.ok().
                 body(formManager.updateForm(id, form));
     }
@@ -68,4 +92,7 @@ public class FormController {
     }
 
 
+    public int percent(int request, int all){
+        return (request * 100 / all);
+    }
 }

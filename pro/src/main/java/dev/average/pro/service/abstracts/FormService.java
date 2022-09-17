@@ -21,5 +21,8 @@ public interface FormService {
 
     Integer countAll();
 
+    Integer countFormsByWorkEnv_Id(int id);
+    Integer countFormsByWorkWeek_Id(int id);
+
 
 }

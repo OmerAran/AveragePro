@@ -12,9 +12,14 @@ public interface FormRepository extends JpaRepository<Form,Long> {
 
     Integer countFormsByWork_NameIgnoreCase(String name);
     Integer countFormsByWork_Id(int id);
-
+    Integer countFormsByWorkEnv_Id(int id);
+    Integer countFormsByWorkWeek_Id(int id);
 
     @Query("SELECT COUNT (form) FROM Form form")
     Integer countAll();
+
+
+
+
 
 }
