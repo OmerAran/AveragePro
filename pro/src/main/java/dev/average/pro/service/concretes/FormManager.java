@@ -57,12 +57,17 @@ public class FormManager implements FormService {
     }
 
     @Override
-    public Integer rateWork(String name) {
-        return formRepository.rateWork( name);
+    public Integer countFormsByWork_Id(int id) {
+        return formRepository.countFormsByWork_Id(id);
     }
 
     @Override
-    public Integer CountWorkById(int id) {
-        return formRepository.CountWorkById(id);
+    public Integer countFormsByWork_NameIgnoreCase(String name) {
+        return formRepository.countFormsByWork_NameIgnoreCase(name);
+    }
+
+    @Override
+    public Integer countAll() {
+        return formRepository.countAll();
     }
 }

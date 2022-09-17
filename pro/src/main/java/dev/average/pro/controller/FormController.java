@@ -31,14 +31,20 @@ public class FormController {
         Form form = formManager.getForm(id);
         return ResponseEntity.ok().body(form);
     }
-    @GetMapping("workbyname/{name}")
-    public Integer rateWork(@PathVariable String name){
-        return formManager.rateWork(name);
+
+    @GetMapping("countworkbyname/{name}")
+    public Integer countFormsByWork_NameIgnoreCase(@PathVariable String name){
+        return formManager.countFormsByWork_NameIgnoreCase(name);
     }
 
     @GetMapping("workbyid/{id}")
     public Integer CountWorkById(@PathVariable int id){
-        return formManager.CountWorkById(id);
+        return formManager.countFormsByWork_Id(id);
+    }
+
+    @GetMapping("allworks")
+    public Integer countAll(){
+        return formManager.countAll();
     }
 
     @PostMapping()
