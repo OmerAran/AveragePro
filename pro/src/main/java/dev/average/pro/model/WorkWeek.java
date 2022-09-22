@@ -10,6 +10,7 @@ import lombok.Setter;
 import javax.persistence.Entity;
 import javax.persistence.*;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -23,6 +24,7 @@ public class WorkWeek {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
+    @NotNull
     @Column(unique = true,name = "work_hours")
     private String workHours;
     @OneToMany(mappedBy = "workWeek")

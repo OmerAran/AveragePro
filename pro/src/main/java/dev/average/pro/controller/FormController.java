@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -34,7 +35,7 @@ public class FormController {
     }
 
     @GetMapping("work/{id}")
-    public Integer CountWorkById(@PathVariable int id){
+    public Integer CountWorkById(@Valid  @PathVariable int id){
         return formManager.countFormsByWork_Id(id);
     }
 
@@ -44,54 +45,54 @@ public class FormController {
     }
 
     @GetMapping("workenv/{id}")
-    public Integer countFormsByWorkEnv_Id(@PathVariable int id){
+    public Integer countFormsByWorkEnv_Id(@Valid  @PathVariable int id){
         return formManager.countFormsByWorkEnv_Id(id);
     }
 
     @GetMapping("workweek/{id}")
-    public Integer countFormsByWorkWeek_Id(@PathVariable int id){
+    public Integer countFormsByWorkWeek_Id(@Valid  @PathVariable int id){
         return formManager.countFormsByWorkWeek_Id(id);
     }
 
     @GetMapping("comparework/{id}")
-    public  Integer compareWork(@PathVariable int id){
+    public  Integer compareWork(@Valid  @PathVariable int id){
         int allWorks = formManager.countAll();
         int requestWork = formManager.countFormsByWork_Id(id);
         return percent(requestWork,allWorks);
     }
 
     @GetMapping("compareworkenv/{id}")
-    public  Integer compareWorkEnv(@PathVariable int id){
+    public  Integer compareWorkEnv(@Valid  @PathVariable int id){
         int allWorkEnvs = formManager.countAll();
         int requestWorkEnv = formManager.countFormsByWorkEnv_Id(id);
         return percent(requestWorkEnv,allWorkEnvs);
     }
     @GetMapping("compareworkweek/{id}")
-    public  Integer compareWorkWeek(@PathVariable int id){
+    public  Integer compareWorkWeek(@Valid @PathVariable int id){
         int allWorkWeeks = formManager.countAll();
         int requestWorkWeek = formManager.countFormsByWorkWeek_Id(id);
         return percent(requestWorkWeek,allWorkWeeks);
     }
     @GetMapping("avgsalary/{id}")
-    public  Integer AvgSalary(@PathVariable int id){
+    public  Integer AvgSalary(@Valid  @PathVariable int id){
         return formManager.AvgSalary(id);
     }
 
 
     @PostMapping()
-    public ResponseEntity<Form> newForm(@RequestBody Form form) {
+    public ResponseEntity<Form> newForm(@Valid @RequestBody Form form) {
 
         return new ResponseEntity<>(formManager.newForm(form), HttpStatus.CREATED);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Form> updateForm(@PathVariable Long id, @RequestBody Form form) {
+    public ResponseEntity<Form> updateForm(@Valid  @PathVariable Long id, @Valid @RequestBody Form form) {
         return ResponseEntity.ok().
                 body(formManager.updateForm(id, form));
     }
 
     @DeleteMapping("/{id}")
-    public void deleteForm(@PathVariable Long id) {
+    public void deleteForm(@Valid  @PathVariable Long id) {
         formManager.deleteForm(id);
     }
 

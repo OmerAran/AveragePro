@@ -1,13 +1,11 @@
 package dev.average.pro.model;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import lombok.AllArgsConstructor;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @NoArgsConstructor
@@ -19,16 +17,18 @@ public class Form {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long Id;
 
-
+    @NotNull
     @ManyToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "job_work")
     private Work work;
 
+    @NotNull
     @ManyToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "job_workweek")
 
     private WorkWeek workWeek;
 
+    @NotNull
     @ManyToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "job_workenv")
     private WorkEnv workEnv;

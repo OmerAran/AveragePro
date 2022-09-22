@@ -3,6 +3,8 @@ package dev.average.pro.model;
 import lombok.*;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -22,17 +24,19 @@ public class User {
     private Long Id;
 
 
+    @NotBlank(message = "Please enter the username")
     @Column(name = "username")
     private String username;
 
-
+    @NotBlank(message = "Please enter the email")
     @Column(name = "email")
     private String email ;
 
+    @NotBlank(message = "Please enter the password")
     @Column(name = "password")
     private String password;
 
-    @ManyToMany(fetch = FetchType.LAZY)
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "users_roles",
     joinColumns = @JoinColumn(name = "user_id"),
     inverseJoinColumns = @JoinColumn(name = "role_id"))
@@ -43,4 +47,6 @@ public class User {
         this.email = email;
         this.password =encode;
     }
+
+
 }

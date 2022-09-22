@@ -46,6 +46,7 @@ public class UserManager implements UserService {
 
         oldUser.setUsername(newUser.getUsername());
         oldUser.setEmail(newUser.getEmail());
+        oldUser.setRoles(newUser.getRoles());
 
         userRepository.save(oldUser);
         return oldUser;

@@ -10,13 +10,13 @@ import lombok.Setter;
 import javax.persistence.Entity;
 import javax.persistence.*;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 import java.util.HashSet;
 import java.util.Set;
 
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-
 @Table(name = "works")
 public class Work
 {
@@ -25,11 +25,11 @@ public class Work
     private int id;
 
 
+    @NotNull
     @Column(unique = true, name = "name")
     private String name;
 
     @OneToMany(fetch = FetchType.EAGER,mappedBy = "work")
-
     private Set<Form> forms = new HashSet<>();
 
 
