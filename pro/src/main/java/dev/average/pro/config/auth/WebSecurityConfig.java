@@ -1,6 +1,7 @@
 package dev.average.pro.config.auth;
 
 import dev.average.pro.config.auth.service.UserDetailsServiceImpl;
+import dev.average.pro.exception.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -42,9 +43,8 @@ public class WebSecurityConfig {
         http.cors().and().csrf().disable()
                 .exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
-                .authorizeRequests().antMatchers("/api/auth/**","/forms/**","/users/**").permitAll()
-                .antMatchers("/api/test/**").permitAll()
-                .antMatchers("/works/**").hasAnyAuthority("ADMIN")
+                .authorizeRequests().antMatchers("/api/auth/**","/forms/**").permitAll()
+                .antMatchers("/works/**","/workweeks/**","/users/**","/workenvs/**").hasAuthority("USER")
                 .anyRequest().authenticated();
 
         http.authenticationProvider(authenticationProvider());
