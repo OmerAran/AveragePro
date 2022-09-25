@@ -10,6 +10,7 @@ import lombok.Setter;
 @Setter
 public class WorkEnvUpdateDto {
 
+    private int id;
     private String workStatus;
 
 }

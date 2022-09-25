@@ -6,8 +6,10 @@ import dev.average.pro.model.User;
 import dev.average.pro.service.concretes.UserManager;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
@@ -20,7 +22,6 @@ public class UserController {
     private final UserManager userManager;
 
 
-
     @GetMapping()
     public List<User>  getUsers(){
         return userManager.getUsers();
@@ -31,7 +32,7 @@ public class UserController {
     public ResponseEntity<User> getUser(@PathVariable Long id){
 
         return ResponseEntity.ok()
-                .body( userManager.getUser(id));
+                .body(userManager.getUser(id));
     }
     @GetMapping("name/{name}")
     public List<User> getUsersByUsername(@PathVariable String name){

@@ -12,5 +12,6 @@ import lombok.Setter;
 public class WorkWeekDto {
 
     private int id;
+    private String workHours;
 }
 

@@ -13,6 +13,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class FormDto {
+    private  Long id;
 
     private WorkDto work;
 

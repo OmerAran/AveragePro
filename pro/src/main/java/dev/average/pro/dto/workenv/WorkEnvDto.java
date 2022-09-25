@@ -12,4 +12,5 @@ import lombok.Setter;
 public class WorkEnvDto {
 
     private int id;
+    private String workStatus;
 }

@@ -11,5 +11,6 @@ import lombok.Setter;
 @Setter
 public class WorkUpdateDto {
 
+    private Long id;
     private String name;
 }
