@@ -43,8 +43,8 @@ public class WebSecurityConfig {
         http.cors().and().csrf().disable()
                 .exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
-                .authorizeRequests().antMatchers("/api/auth/**","/forms/**").permitAll()
-                .antMatchers("/works/**","/workweeks/**","/users/**","/workenvs/**").hasAuthority("USER")
+                .authorizeRequests().antMatchers("/api/auth/**","/pro/**").permitAll()
+                .antMatchers("/works/**","/workweeks/**","/users/**","/workenvs/**").hasAuthority("ADMIN")
                 .anyRequest().authenticated();
 
         http.authenticationProvider(authenticationProvider());

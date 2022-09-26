@@ -25,5 +25,9 @@ public interface FormService {
     Integer countFormsByWorkWeek_Id(int id);
     Integer AvgSalary(int id);
 
+    Double avgWorkWeekByWork(int id);
+
+    Double avgWorkEnvByWork(int id);
+
 
 }

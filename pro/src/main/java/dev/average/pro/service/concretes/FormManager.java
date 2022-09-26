@@ -85,4 +85,14 @@ public class FormManager implements FormService {
     public Integer AvgSalary(int id) {
         return formRepository.AvgSalary(id);
     }
+
+    @Override
+    public Double avgWorkWeekByWork(int id) {
+        return formRepository.avgWorkWeekByWork(id);
+    }
+
+    @Override
+    public Double avgWorkEnvByWork(int id) {
+        return formRepository.avgWorkEnvByWork(id);
+    }
 }
