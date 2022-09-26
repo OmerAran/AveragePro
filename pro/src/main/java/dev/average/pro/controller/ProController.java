@@ -3,10 +3,7 @@ package dev.average.pro.controller;
 import dev.average.pro.repository.FormRepository;
 import dev.average.pro.service.concretes.FormManager;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -14,6 +11,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/pro")
 @RequiredArgsConstructor
+@CrossOrigin
 public class ProController {
 
     private final FormManager formManager;
