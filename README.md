@@ -11,6 +11,6 @@
 <ul>
 <li>Java 17</li>
 <li>Spring Boot</li>
-<li>React.js</li>
+<li>React.js (maybe Angular)</li>
 </ul>
 
