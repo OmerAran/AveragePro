@@ -7,7 +7,7 @@ class App extends Component {
 
     async function callExpress() {
       try {
-        let response = await fetch('/avgsalary/1')
+        let response = await fetch('/avgsalary/3')
                               .then(res => res.json());
         alert('Hi this is a response from the backend: ' + response.response);
       } catch (err) {

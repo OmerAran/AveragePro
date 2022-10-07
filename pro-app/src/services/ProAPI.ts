@@ -1,6 +1,6 @@
 import axios, { AxiosResponse } from "axios"
 
-const baseUrl: string = "http://localhost:8080"
+const baseUrl : string = "http://localhost:8080"
 
 export const getPro = async (_id : number): Promise<AxiosResponse<ApiDataType>> => {
     try {
