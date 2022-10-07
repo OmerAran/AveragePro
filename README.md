@@ -13,4 +13,3 @@
 <li>Spring Boot</li>
 <li>React.js (maybe Angular)</li>
 </ul>
-
