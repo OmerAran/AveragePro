@@ -16,7 +16,6 @@ public class ProController {
 
     private final FormManager formManager;
 
-
     @GetMapping("/avgsalary/{id}")
     public Integer avgSalary(@PathVariable int id){
         return formManager.AvgSalary(id);

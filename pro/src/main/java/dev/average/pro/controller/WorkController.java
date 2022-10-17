@@ -13,6 +13,7 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
+@CrossOrigin
 @RequestMapping("/works")
 public class WorkController {
 
@@ -21,12 +22,12 @@ public class WorkController {
 
 
     @GetMapping()
-    public List<Work> getForms(){
+    public List<Work> getWorks(){
         return workManager.getWorks();
     }
 
     @GetMapping("{id}")
-    public ResponseEntity<Work> getForm(@PathVariable int id){
+    public ResponseEntity<Work> getWork(@PathVariable int id){
         Work work = workManager.getWork(id);
         return ResponseEntity.ok().body(work);
     }
