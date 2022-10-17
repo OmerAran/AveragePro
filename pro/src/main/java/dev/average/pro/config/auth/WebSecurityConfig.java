@@ -44,8 +44,8 @@ public class WebSecurityConfig {
                 .exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
                 .authorizeRequests().antMatchers("/api/auth/**","/pro/**").permitAll()
-                .antMatchers("/works/**","/workweeks/**","/users/**","/workenvs/**").hasAuthority("ADMIN")
-                .anyRequest().authenticated();
+                .antMatchers("/workweeks/**","/users/**","/workenvs/**").hasAuthority("ADMIN")
+                .anyRequest().permitAll();
 
         http.authenticationProvider(authenticationProvider());
 
