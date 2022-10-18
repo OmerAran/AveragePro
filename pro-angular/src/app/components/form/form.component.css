@@ -1,0 +1,17 @@
+.jumbotron{
+    padding-top: 10%;
+    padding-bottom: 10%;
+    background :linear-gradient( rgba(13, 13, 190, 0.25), 
+    rgba(25, 171, 171, 0.25))}
+
+.header{
+    text-align: center;
+    color:gray;
+        }
+
+.form-group label{
+    font-size:x-large;
+    font-weight: 200;
+}
+
+

@@ -9,6 +9,7 @@ export class FormService {
 
   constructor(private http : HttpClient) { }
 
+  
   getAvgSalaryById(id : any){
    return  this.http.get(`${baseUrl}/pro/avgsalary/${id}`);
   }

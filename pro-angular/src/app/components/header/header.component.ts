@@ -14,131 +14,53 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
     this.items = [
       {
-          label:'File',
-          icon:'pi pi-fw pi-file',
-          items:[
-              {
-                  label:'New',
-                  icon:'pi pi-fw pi-plus',
-                  items:[
-                  {
-                      label:'Bookmark',
-                      icon:'pi pi-fw pi-bookmark'
-                  },
-                  {
-                      label:'Video',
-                      icon:'pi pi-fw pi-video'
-                  },
-
-                  ]
-              },
-              {
-                  label:'Delete',
-                  icon:'pi pi-fw pi-trash'
-              },
-              {
-                  separator:true
-              },
-              {
-                  label:'Export',
-                  icon:'pi pi-fw pi-external-link'
-              }
-          ]
+          label:'Home',
+          icon:'pi pi-fw pi-home',
+          routerLink: ['/home']
       },
+     
       {
-          label:'Edit',
-          icon:'pi pi-fw pi-pencil',
-          items:[
-              {
-                  label:'Left',
-                  icon:'pi pi-fw pi-align-left'
-              },
-              {
-                  label:'Right',
-                  icon:'pi pi-fw pi-align-right'
-              },
-              {
-                  label:'Center',
-                  icon:'pi pi-fw pi-align-center'
-              },
-              {
-                  label:'Justify',
-                  icon:'pi pi-fw pi-align-justify'
-              },
-
-          ]
-      },
-      {
-          label:'Users',
+          label:'Form',
           icon:'pi pi-fw pi-user',
           items:[
               {
                   label:'New',
-                  icon:'pi pi-fw pi-user-plus',
+                  icon:'pi pi-fw pi-user',
+                  routerLink: ['/form']
 
-              },
-              {
-                  label:'Delete',
-                  icon:'pi pi-fw pi-user-minus',
-
-              },
-              {
-                  label:'Search',
-                  icon:'pi pi-fw pi-users',
-                  items:[
-                  {
-                      label:'Filter',
-                      icon:'pi pi-fw pi-filter',
-                      items:[
-                          {
-                              label:'Print',
-                              icon:'pi pi-fw pi-print'
-                          }
-                      ]
-                  },
-                  {
-                      icon:'pi pi-fw pi-bars',
-                      label:'List'
-                  }
-                  ]
               }
           ]
       },
       {
-          label:'Events',
-          icon:'pi pi-fw pi-calendar',
-          items:[
-              {
-                  label:'Edit',
-                  icon:'pi pi-fw pi-pencil',
-                  items:[
-                  {
-                      label:'Save',
-                      icon:'pi pi-fw pi-calendar-plus'
-                  },
-                  {
-                      label:'Delete',
-                      icon:'pi pi-fw pi-calendar-minus'
-                  },
-
-                  ]
-              },
-              {
-                  label:'Archieve',
-                  icon:'pi pi-fw pi-calendar-times',
-                  items:[
-                  {
-                      label:'Remove',
-                      icon:'pi pi-fw pi-calendar-minus'
-                  }
-                  ]
-              }
-          ]
-      },
-      {
-          label:'Quit',
-          icon:'pi pi-fw pi-power-off'
+          label:'Contacts',
+          icon:'pi pi-fw pi-phone',
+          items : [
+            {
+                label :'contact',
+                icon:'pi pi-fw pi-desktop',
+                routerLink : ['/contact']
+               
+          },
+            {
+                label :'linkedin',
+                icon:'pi pi-fw pi-linkedin',
+                url : 'http://linkedin.com/in/omeraran'
+               
+          },
+          {
+            label :'github',
+            icon:'pi pi-fw pi-github',
+            url :'http://github.com/omeraran'
+           
       }
+          ]
+          
+      },
+      {
+        label:'About',
+        icon:'pi pi-fw pi-id-card',
+        routerLink : ['/form']
+    }
   ];
 
   }

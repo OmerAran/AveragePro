@@ -12,6 +12,12 @@ export class ProService {
   getWorks(){
     return this.http.get(baseUrl+'/works');
   }
+  getWorkEnvs(){
+    return this.http.get(baseUrl+'/workenvs');
+  }
+  getWorkWeeks(){
+    return this.http.get(baseUrl+'/workweeks');
+  }
   getWorkById(id: any){}
 
   

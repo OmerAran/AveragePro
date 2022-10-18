@@ -13,6 +13,7 @@ import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
 @RestController
+@CrossOrigin
 @RequestMapping("/workenvs")
 public class WorkEnvController {
 

@@ -1,0 +1,14 @@
+.jumbotron{
+    padding-top: 25%;
+    padding-bottom: 25%;
+    background :linear-gradient( rgba(13, 13, 190, 0.25), 
+    rgba(25, 171, 171, 0.25))}
+
+    .info{
+        text-align: left;
+        color: gray;
+    }
+   
+    .font{
+        font-weight: 100;
+    }
